@@ -19,6 +19,7 @@ export default class UIHealthBarsController extends RE.Component {
 
     if (!p1 || !healthBar) return;
 
+    // TODO: 
     if (p1.curHP !== this.HP) this.updateHealthbar(healthBar, p1);
 
     this.HP = p1.curHP;
