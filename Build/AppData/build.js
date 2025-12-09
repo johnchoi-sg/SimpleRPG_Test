@@ -14189,30 +14189,22 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 class UIHealthBarsController extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Component {
   constructor() {
     super(...arguments);
-    this.p1HP = 0;
-    this.p2HP = 0;
+    this.HP = 0;
   }
-  get healthBar1() {
-    return document.querySelector("#health-bar-1 > div");
+  get healthBar() {
+    return document.querySelector("#health-bar > div");
   }
-  get healthBar2() {
-    return document.querySelector("#health-bar-2 > div");
-  }
-  get player1Status() {
-    return rogue_engine__WEBPACK_IMPORTED_MODULE_0__.getComponentByName("Player1");
-  }
-  get player2Status() {
-    return rogue_engine__WEBPACK_IMPORTED_MODULE_0__.getComponentByName("Player2");
+  get playerStatus() {
+    return rogue_engine__WEBPACK_IMPORTED_MODULE_0__.getComponentByName("Player");
   }
   update() {
-    const p1 = this.player1Status;
-    const p2 = this.player2Status;
-    if (p1.curHP !== this.p1HP)
-      this.updateHealthbar(this.healthBar1, p1);
-    if (p2.curHP !== this.p2HP)
-      this.updateHealthbar(this.healthBar2, p2);
-    this.p1HP = p1.curHP;
-    this.p2HP = p2.curHP;
+    const p1 = this.playerStatus;
+    const healthBar = this.healthBar;
+    if (!p1 || !healthBar)
+      return;
+    if (p1.curHP !== this.HP)
+      this.updateHealthbar(healthBar, p1);
+    this.HP = p1.curHP;
   }
   updateHealthbar(healthbar, player) {
     healthbar.style.width = player.curHP * 100 / player.hp + "%";
