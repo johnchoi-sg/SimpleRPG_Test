@@ -1,0 +1,11 @@
+{
+  "title": "SimpleRPG_Test",
+  "scenes": [
+    {
+      "name": "MainGame",
+      "uuid": "f6996300-b948-497f-b57a-d2dd0c1260ff"
+    }
+  ],
+  "projectVersion": 27,
+  "lastOpenedScene": "/Assets/Scenes/MainGame.rogueScene"
+}
