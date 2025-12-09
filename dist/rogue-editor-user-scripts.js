@@ -126,13 +126,13 @@ class CannonBodyWireframe extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Comp
   }
   getColliderMesh(component) {
     if (component instanceof _Shapes_CannonBox_re__WEBPACK_IMPORTED_MODULE_2__["default"]) {
-      return new three__WEBPACK_IMPORTED_MODULE_1__.Mesh(new three__WEBPACK_IMPORTED_MODULE_1__.BoxBufferGeometry(), this.wireframeMaterial);
+      return new three__WEBPACK_IMPORTED_MODULE_1__.Mesh(new three__WEBPACK_IMPORTED_MODULE_1__.BoxGeometry(), this.wireframeMaterial);
     }
     if (component instanceof _Shapes_CannonCylinder_re__WEBPACK_IMPORTED_MODULE_5__["default"]) {
       const radiusTop = component.radiusTopOffset;
       const radiusBottom = component.radiusBottomOffset;
       const height = component.heightOffset;
-      const mesh = new three__WEBPACK_IMPORTED_MODULE_1__.Mesh(new three__WEBPACK_IMPORTED_MODULE_1__.CylinderBufferGeometry(radiusTop, radiusBottom, height, component.segments), this.wireframeMaterial);
+      const mesh = new three__WEBPACK_IMPORTED_MODULE_1__.Mesh(new three__WEBPACK_IMPORTED_MODULE_1__.CylinderGeometry(radiusTop, radiusBottom, height, component.segments), this.wireframeMaterial);
       return mesh;
     }
     if (component instanceof _Shapes_CannonSphere_re__WEBPACK_IMPORTED_MODULE_3__["default"]) {
@@ -141,7 +141,7 @@ class CannonBodyWireframe extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Comp
       const radius = component.radiusOffset * maxSide;
       const compensatedRadius = radius + radius * 0.01;
       const segments = 15;
-      return new three__WEBPACK_IMPORTED_MODULE_1__.Mesh(new three__WEBPACK_IMPORTED_MODULE_1__.SphereBufferGeometry(compensatedRadius, segments, segments), this.wireframeMaterial);
+      return new three__WEBPACK_IMPORTED_MODULE_1__.Mesh(new three__WEBPACK_IMPORTED_MODULE_1__.SphereGeometry(compensatedRadius, segments, segments), this.wireframeMaterial);
     }
     if (component instanceof _Shapes_CannonTrimesh_re__WEBPACK_IMPORTED_MODULE_6__["default"]) {
       if (!component.shape)
@@ -169,10 +169,10 @@ class CannonBodyWireframe extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Comp
       const radiusTop = component.radiusTopOffset;
       const radiusBottom = component.radiusBottomOffset;
       const height = component.heightOffset;
-      if (mesh.geometry instanceof three__WEBPACK_IMPORTED_MODULE_1__.CylinderBufferGeometry) {
+      if (mesh.geometry instanceof three__WEBPACK_IMPORTED_MODULE_1__.CylinderGeometry) {
         if (mesh.geometry.parameters.radiusTop !== radiusTop || mesh.geometry.parameters.radiusBottom !== radiusBottom || mesh.geometry.parameters.height !== height || mesh.geometry.parameters.radialSegments !== component.segments) {
           mesh.geometry.dispose();
-          mesh.geometry = new three__WEBPACK_IMPORTED_MODULE_1__.CylinderBufferGeometry(radiusTop, radiusBottom, height, component.segments);
+          mesh.geometry = new three__WEBPACK_IMPORTED_MODULE_1__.CylinderGeometry(radiusTop, radiusBottom, height, component.segments);
         }
       }
       component.object3d.getWorldScale(mesh.scale);
@@ -181,7 +181,7 @@ class CannonBodyWireframe extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Comp
       const scale = component.object3d.scale;
       const maxSide = Math.max(scale.x, scale.y, scale.z);
       const radius = component.radiusOffset * maxSide;
-      if (mesh.geometry instanceof three__WEBPACK_IMPORTED_MODULE_1__.SphereBufferGeometry) {
+      if (mesh.geometry instanceof three__WEBPACK_IMPORTED_MODULE_1__.SphereGeometry) {
         if (mesh.geometry.parameters.radius !== radius) {
           let segments = 10 * radius;
           if (segments < 15)
@@ -189,7 +189,7 @@ class CannonBodyWireframe extends rogue_engine__WEBPACK_IMPORTED_MODULE_0__.Comp
           if (segments > 50)
             segments = 50;
           mesh.geometry.dispose();
-          mesh.geometry = new three__WEBPACK_IMPORTED_MODULE_1__.SphereBufferGeometry(radius, segments, segments);
+          mesh.geometry = new three__WEBPACK_IMPORTED_MODULE_1__.SphereGeometry(radius, segments, segments);
         }
       }
     }

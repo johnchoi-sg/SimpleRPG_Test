@@ -3,39 +3,30 @@ import CharacterStatus from './CharacterStatus.re';
 
 export default class UIHealthBarsController extends RE.Component {
 
-  get healthBar1() {
-    return document.querySelector("#health-bar-1 > div") as HTMLDivElement;
+  get healthBar() {
+    return document.querySelector("#health-bar > div") as HTMLDivElement;
   }
 
-  get healthBar2() {
-    return document.querySelector("#health-bar-2 > div") as HTMLDivElement;
+  get playerStatus() {
+    return RE.getComponentByName("Player") as CharacterStatus;
   }
 
-  get player1Status() {
-    return RE.getComponentByName("Player1") as CharacterStatus;
-  }
-
-  get player2Status() {
-    return RE.getComponentByName("Player2") as CharacterStatus;
-  }
-
-  p1HP = 0;
-  p2HP = 0;
+  HP = 0;
 
   update() {
-    const p1 = this.player1Status;
-    const p2 = this.player2Status;
+    const p1 = this.playerStatus;
+    const healthBar = this.healthBar;
 
-    if (p1.curHP !== this.p1HP) this.updateHealthbar(this.healthBar1, p1);
-    if (p2.curHP !== this.p2HP) this.updateHealthbar(this.healthBar2, p2);
+    if (!p1 || !healthBar) return;
 
-    this.p1HP = p1.curHP;
-    this.p2HP = p2.curHP;
+    if (p1.curHP !== this.HP) this.updateHealthbar(healthBar, p1);
+
+    this.HP = p1.curHP;
   }
 
   updateHealthbar(healthbar: HTMLDivElement, player: CharacterStatus) {
     healthbar.style.width = ((player.curHP * 100) / player.hp) + "%";
-  } 
+  }
 }
 
 RE.registerComponent(UIHealthBarsController);

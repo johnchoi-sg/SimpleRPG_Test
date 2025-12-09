@@ -12,12 +12,12 @@ export default class CannonBodyWireframe extends RE.Component {
 
   selectedObjects: THREE.Object3D[] = [];
   colliders: THREE.Object3D[] = [];
-  wireframeMaterial = new THREE.MeshStandardMaterial({wireframe: true, emissive: new THREE.Color("#00FF00"), color: new THREE.Color("#000000")});
+  wireframeMaterial = new THREE.MeshStandardMaterial({ wireframe: true, emissive: new THREE.Color("#00FF00"), color: new THREE.Color("#000000") });
 
-  private handleOnComponentAdded = {stop: () => {}};
-  private handleOnComponentRemoved = {stop: () => {}};
+  private handleOnComponentAdded = { stop: () => { } };
+  private handleOnComponentRemoved = { stop: () => { } };
 
-  private handleOnPlay = {stop: () => {}};
+  private handleOnPlay = { stop: () => { } };
 
   private resetHandler = (component: RE.Component) => {
     component instanceof CannonShape && this.setupImpostors();
@@ -111,7 +111,7 @@ export default class CannonBodyWireframe extends RE.Component {
   private getColliderMesh(component: CannonShape): THREE.Mesh | undefined {
     if (component instanceof CannonBox) {
       return new THREE.Mesh(
-        new THREE.BoxBufferGeometry(),
+        new THREE.BoxGeometry(),
         this.wireframeMaterial,
       );
     }
@@ -121,7 +121,7 @@ export default class CannonBodyWireframe extends RE.Component {
       const radiusBottom = component.radiusBottomOffset;
       const height = component.heightOffset;
       const mesh = new THREE.Mesh(
-        new THREE.CylinderBufferGeometry(radiusTop, radiusBottom, height, component.segments),
+        new THREE.CylinderGeometry(radiusTop, radiusBottom, height, component.segments),
         this.wireframeMaterial,
       );
 
@@ -137,7 +137,7 @@ export default class CannonBodyWireframe extends RE.Component {
       const segments = 15;
 
       return new THREE.Mesh(
-        new THREE.SphereBufferGeometry(compensatedRadius, segments, segments),
+        new THREE.SphereGeometry(compensatedRadius, segments, segments),
         this.wireframeMaterial,
       );
     }
@@ -152,7 +152,7 @@ export default class CannonBodyWireframe extends RE.Component {
 
         const points: THREE.Vector3[] = [];
 
-        for (let i = 0; i < component.shape.vertices.length; i+=3) {
+        for (let i = 0; i < component.shape.vertices.length; i += 3) {
           const point = new THREE.Vector3(
             component.shape.vertices[i],
             component.shape.vertices[i + 1],
@@ -187,7 +187,7 @@ export default class CannonBodyWireframe extends RE.Component {
       const radiusBottom = component.radiusBottomOffset;
       const height = component.heightOffset;
 
-      if (mesh.geometry instanceof THREE.CylinderBufferGeometry) {
+      if (mesh.geometry instanceof THREE.CylinderGeometry) {
         if (
           mesh.geometry.parameters.radiusTop !== radiusTop ||
           mesh.geometry.parameters.radiusBottom !== radiusBottom ||
@@ -195,7 +195,7 @@ export default class CannonBodyWireframe extends RE.Component {
           mesh.geometry.parameters.radialSegments !== component.segments
         ) {
           mesh.geometry.dispose();
-          mesh.geometry = new THREE.CylinderBufferGeometry(radiusTop, radiusBottom, height, component.segments);
+          mesh.geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, component.segments);
         }
       }
       component.object3d.getWorldScale(mesh.scale);
@@ -207,7 +207,7 @@ export default class CannonBodyWireframe extends RE.Component {
 
       const radius = component.radiusOffset * (maxSide);
 
-      if (mesh.geometry instanceof THREE.SphereBufferGeometry) {
+      if (mesh.geometry instanceof THREE.SphereGeometry) {
         if (mesh.geometry.parameters.radius !== radius) {
           let segments = 10 * radius;
 
@@ -216,7 +216,7 @@ export default class CannonBodyWireframe extends RE.Component {
           if (segments > 50) segments = 50;
 
           mesh.geometry.dispose();
-          mesh.geometry = new THREE.SphereBufferGeometry(radius, segments, segments);
+          mesh.geometry = new THREE.SphereGeometry(radius, segments, segments);
         }
       }
     }
