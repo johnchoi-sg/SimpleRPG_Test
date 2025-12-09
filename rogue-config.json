@@ -1,11 +1,12 @@
 {
-  "title": "SimpleRPG_Test",
+  "title": "WarriorsArena",
   "scenes": [
     {
-      "name": "MainGame",
-      "uuid": "f6996300-b948-497f-b57a-d2dd0c1260ff"
+      "name": "Arena",
+      "uuid": "24549984-58C7-4F4C-822F-82377662F1A8"
     }
   ],
   "projectVersion": 27,
-  "lastOpenedScene": "/Assets/Scenes/MainGame.rogueScene"
+  "useHttps": true,
+  "lastOpenedScene": "/Assets/Scenes/Arena.rogueScene"
 }
