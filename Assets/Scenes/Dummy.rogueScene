@@ -1,0 +1,317 @@
+{
+  "assetConfigs": {},
+  "scene": {
+    "metadata": {
+      "version": 4.6,
+      "type": "Object",
+      "generator": "Object3D.toJSON"
+    },
+    "geometries": [
+      {
+        "uuid": "004d0afc-c8b0-469c-8b1f-cfe5037a2078",
+        "type": "BoxGeometry",
+        "width": 1,
+        "height": 1,
+        "depth": 1,
+        "widthSegments": 1,
+        "heightSegments": 1,
+        "depthSegments": 1
+      }
+    ],
+    "materials": [
+      {
+        "uuid": "2da72a0b-e43f-4881-a625-ae59328672c1",
+        "type": "MeshStandardMaterial",
+        "color": 16777215,
+        "roughness": 1,
+        "metalness": 0,
+        "emissive": 0,
+        "envMapRotation": [
+          0,
+          0,
+          0,
+          "XYZ"
+        ],
+        "envMapIntensity": 1,
+        "blendColor": 0
+      }
+    ],
+    "object": {
+      "uuid": "cf3d0f65-149e-436c-b897-f224b4e3574d",
+      "type": "Scene",
+      "layers": 1,
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "children": [
+        {
+          "uuid": "519c751f-bdb2-4b35-8548-c508fb50fece",
+          "type": "DirectionalLight",
+          "name": "SUNLIGHT",
+          "castShadow": true,
+          "userData": {
+            "__IS_ADDING__": false
+          },
+          "layers": 1,
+          "matrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "color": 16777215,
+          "intensity": 5,
+          "shadow": {
+            "camera": {
+              "uuid": "771a9ea3-e19b-4bf9-8116-d53b10c3e04a",
+              "type": "OrthographicCamera",
+              "layers": 1,
+              "up": [
+                0,
+                1,
+                0
+              ],
+              "zoom": 1,
+              "left": -5,
+              "right": 5,
+              "top": 5,
+              "bottom": -5,
+              "near": 0.5,
+              "far": 500
+            }
+          }
+        },
+        {
+          "uuid": "e6362302-6aa6-407d-8907-5bdb71d31d1e",
+          "type": "HemisphereLight",
+          "name": "HemisphereLight",
+          "userData": {
+            "__IS_ADDING__": false
+          },
+          "layers": 1,
+          "matrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "color": 16777215,
+          "intensity": 5,
+          "groundColor": 0
+        },
+        {
+          "uuid": "d82237a9-9c7e-41f9-8497-5dd295ed9de0",
+          "type": "PerspectiveCamera",
+          "name": "Main Camera",
+          "userData": {
+            "__IS_ADDING__": false
+          },
+          "layers": 1,
+          "matrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            10,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "children": [
+            {
+              "uuid": "589eaf1e-60e7-464e-8f0a-d47865584604",
+              "type": "Object3D",
+              "name": "AudioListener",
+              "userData": {
+                "__AUDIOLISTENER__": true,
+                "__IS_ADDING__": false
+              },
+              "layers": 1,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ],
+              "up": [
+                0,
+                1,
+                0
+              ]
+            }
+          ],
+          "fov": 50,
+          "zoom": 1,
+          "near": 0.1,
+          "far": 10000,
+          "focus": 10,
+          "aspect": 1,
+          "filmGauge": 35,
+          "filmOffset": 0
+        },
+        {
+          "uuid": "c0055e78-495b-4a1d-b35c-915f66bc3a71",
+          "type": "Mesh",
+          "name": "Cube",
+          "castShadow": true,
+          "receiveShadow": true,
+          "userData": {
+            "__IS_ADDING__": false
+          },
+          "layers": 1,
+          "matrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "geometry": "004d0afc-c8b0-469c-8b1f-cfe5037a2078",
+          "material": "2da72a0b-e43f-4881-a625-ae59328672c1"
+        }
+      ],
+      "backgroundRotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ],
+      "environmentRotation": [
+        0,
+        0,
+        0,
+        "XYZ"
+      ]
+    }
+  },
+  "skybox": {
+    "_enabled": false,
+    "_mode": "procedural",
+    "layers": 1,
+    "_showSun": false,
+    "inclination": 0.464,
+    "azimuth": 0.25,
+    "mieDirectionalG": 0.998,
+    "mieCoefficient": 0.004,
+    "turbidity": 10,
+    "rayleigh": 1.423,
+    "luminance": 1,
+    "_sunSpeed": 0,
+    "_cubemapTop": false,
+    "_cubemapBottom": false,
+    "_cubemapFront": false,
+    "_cubemapBack": false,
+    "_cubemapRight": false,
+    "_cubemapLeft": false
+  },
+  "components": {},
+  "initialCameraId": "d82237a9-9c7e-41f9-8497-5dd295ed9de0",
+  "editorCamera": {
+    "position": [
+      -1.9999999999999998,
+      2.5000000000000004,
+      8.499999999999998
+    ],
+    "quaternion": [
+      -0.13804228559391607,
+      -0.11416972982933991,
+      -0.016021505045018373,
+      0.9836935048859455
+    ]
+  }
+}
